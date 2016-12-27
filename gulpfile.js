@@ -13,6 +13,7 @@ var browserify = require("browserify"); //babel
 var buffer = require("vinyl-buffer"); //uglifyするためのもの //今は使わない
 var node = require("node-dev");
 var source = require("vinyl-source-stream"); //browserifyとgulpを使用する場合は、vinyl-source-streamで橋渡ししないといけない
+var gcmq = require('gulp-group-css-media-queries'); //メディアクエリをまとめて小さくする
 
 
 
@@ -82,6 +83,9 @@ gulp.task("jade",function(){
 
 
 gulp.task("default",["server","babel"],function(){
+	gulp.src('public/style.css')
+        .pipe(gcmq())
+        .pipe(gulp.dest('public.css'));
 	gulp.watch("src/styles/*.scss",["sass"]);
 	gulp.watch("src/views/*.jade",["jade"]);
 	gulp.watch("src/js/*.es6",["babel"]);

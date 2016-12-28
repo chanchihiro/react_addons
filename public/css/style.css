@@ -51,5 +51,7 @@ body {
   background-color: #fff;
   font-family: mc-l; }
 
-th, td {
-  border: 1px solid #000; }
+.bd, th, td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 3px 10px; }

@@ -20472,16 +20472,39 @@ var tableColumns = ['名前', '地域', '番号'];
 
 var tableData = [{ id: 1, name: '野口千紘', area: '東京都港区', number: '888888' }, { id: 2, name: '山田太郎', area: '東京都渋谷区', number: '000000' }, { id: 3, name: '鈴木謙介', area: '東京都新宿区', number: '234234' }];
 
-var TableHeader = function (_React$Component) {
-	_inherits(TableHeader, _React$Component);
+var ContactTable = function (_React$Component) {
+	_inherits(ContactTable, _React$Component);
 
-	function TableHeader() {
-		_classCallCheck(this, TableHeader);
+	function ContactTable() {
+		_classCallCheck(this, ContactTable);
 
-		return _possibleConstructorReturn(this, (TableHeader.__proto__ || Object.getPrototypeOf(TableHeader)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (ContactTable.__proto__ || Object.getPrototypeOf(ContactTable)).apply(this, arguments));
 	}
 
-	_createClass(TableHeader, [{
+	_createClass(ContactTable, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'table',
+				null,
+				this.props.children
+			);
+		}
+	}]);
+
+	return ContactTable;
+}(_react2.default.Component);
+
+ContactTable.Header = function (_React$Component2) {
+	_inherits(Header, _React$Component2);
+
+	function Header() {
+		_classCallCheck(this, Header);
+
+		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+	}
+
+	_createClass(Header, [{
 		key: 'render',
 		value: function render() {
 			var tableTitles = this.props.title.map(function (cName, i) {
@@ -20504,19 +20527,19 @@ var TableHeader = function (_React$Component) {
 		}
 	}]);
 
-	return TableHeader;
+	return Header;
 }(_react2.default.Component);
 
-var TableBody = function (_React$Component2) {
-	_inherits(TableBody, _React$Component2);
+ContactTable.Body = function (_React$Component3) {
+	_inherits(Body, _React$Component3);
 
-	function TableBody() {
-		_classCallCheck(this, TableBody);
+	function Body() {
+		_classCallCheck(this, Body);
 
-		return _possibleConstructorReturn(this, (TableBody.__proto__ || Object.getPrototypeOf(TableBody)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).apply(this, arguments));
 	}
 
-	_createClass(TableBody, [{
+	_createClass(Body, [{
 		key: 'render',
 		value: function render() {
 			var tableRows = this.props.data.map(function (person) {
@@ -20549,11 +20572,11 @@ var TableBody = function (_React$Component2) {
 		}
 	}]);
 
-	return TableBody;
+	return Body;
 }(_react2.default.Component);
 
-var DispTable = function (_React$Component3) {
-	_inherits(DispTable, _React$Component3);
+var DispTable = function (_React$Component4) {
+	_inherits(DispTable, _React$Component4);
 
 	function DispTable() {
 		_classCallCheck(this, DispTable);
@@ -20565,10 +20588,10 @@ var DispTable = function (_React$Component3) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'table',
+				ContactTable,
 				{ className: 'bd' },
-				_react2.default.createElement(TableHeader, { title: this.props.title }),
-				_react2.default.createElement(TableBody, { data: this.props.data })
+				_react2.default.createElement(ContactTable.Header, { title: this.props.title }),
+				_react2.default.createElement(ContactTable.Body, { data: this.props.data })
 			);
 		}
 	}]);

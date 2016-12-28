@@ -11,7 +11,17 @@ let tableData = [
 ];
 
 
-class TableHeader extends React.Component {
+class ContactTable extends React.Component {
+	render(){
+		return(
+			<table>
+				{this.props.children}
+			</table>
+		);
+	}
+}
+
+ContactTable.Header = class Header extends React.Component {
 	render(){
 		let tableTitles = this.props.title.map((cName, i) => {
 			return(
@@ -31,7 +41,7 @@ class TableHeader extends React.Component {
 	}
 }
 
-class TableBody extends React.Component {
+ContactTable.Body = class Body extends React.Component {
 	render(){
 		let tableRows = this.props.data.map((person) => {
 			return(
@@ -54,10 +64,10 @@ class TableBody extends React.Component {
 class DispTable extends React.Component {
 	render(){
 		return(
-			<table className="bd">
-				<TableHeader title={this.props.title} />
-				<TableBody data={this.props.data} />
-			</table>
+			<ContactTable className="bd">
+				<ContactTable.Header title={this.props.title} />
+				<ContactTable.Body data={this.props.data} />
+			</ContactTable>
 		);
 	}
 }

@@ -20450,6 +20450,10 @@ module.exports = require('./lib/React');
 },{"./lib/React":155}],178:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -20467,10 +20471,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var tableColumns = ['名前', '地域', '番号'];
-
-var tableData = [{ id: 1, name: '野口千紘', area: '東京都港区', number: '888888' }, { id: 2, name: '山田太郎', area: '東京都渋谷区', number: '000000' }, { id: 3, name: '鈴木謙介', area: '東京都新宿区', number: '234234' }];
 
 var ContactTable = function (_React$Component) {
 	_inherits(ContactTable, _React$Component);
@@ -20599,6 +20599,29 @@ var DispTable = function (_React$Component4) {
 	return DispTable;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(DispTable, { title: tableColumns, data: tableData }), document.getElementById("content"));
+exports.default = DispTable;
 
-},{"react":177,"react-dom":26}]},{},[178]);
+},{"react":177,"react-dom":26}],179:[function(require,module,exports){
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _Table = require('./components/Table');
+
+var _Table2 = _interopRequireDefault(_Table);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var tableColumns = ['名前', '地域', '番号'];
+
+var tableData = [{ id: 1, name: '野口千紘', area: '東京都港区', number: '888888' }, { id: 2, name: '山田太郎', area: '東京都渋谷区', number: '000000' }, { id: 3, name: '鈴木謙介', area: '東京都新宿区', number: '234234' }];
+
+_reactDom2.default.render(_react2.default.createElement(_Table2.default, { title: tableColumns, data: tableData }), document.getElementById("content"));
+
+},{"./components/Table":178,"react":177,"react-dom":26}]},{},[179]);

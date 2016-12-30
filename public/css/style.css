@@ -55,3 +55,7 @@ body {
   border: 1px solid #000;
   border-collapse: collapse;
   padding: 3px 10px; }
+
+#content {
+  width: 300px;
+  margin: 0 auto; }

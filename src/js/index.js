@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Addons from "react-addons"
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import DispTable from "./components/Table"
-import Anime from "./components/Anime"
+import CheckAnimate from "./components/Anime"
 
 
 let tableColumns = ['名前', '地域', '番号'];
@@ -15,11 +15,8 @@ let tableData = [
 ];
 
 
-
-
-
 ReactDOM.render(
-	<Anime />,
+	<CheckAnimate />,
 	document.getElementById("content")
 );
 

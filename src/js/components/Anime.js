@@ -1,16 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Addons from 'react-addons'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
-class CheckAnimate extends React.Component {
+export default class CheckAnimate extends React.Component {
 	constructor(props) {
 		super(props);
-
-		return{
+		this.state = {
 			checked : false,
 			visibleText : ''
 		};
+		this.checkChange = this.checkChange.bind(this);
 	}
 
 	checkChange(event){
@@ -19,19 +19,18 @@ class CheckAnimate extends React.Component {
 		}else{
 			this.setState({visibleText : ''})
 		}
-
 		this.setState({checked : event.target.checked});
 	}
 
-	render(){
+	render() {
 		return(
 			<div>
 				<input type='checkbox' checked={this.state.checked} onChange={this.checkChange}/>
 				隠れたテキストを表示
 				<ReactCSSTransitionGroup 
 					transitionName='fadingText'
-					transitionEnterTimeOut={1500}
-					transitionLeaveTimeOut={500}
+					transitionEnterTimeout={1500}
+					transitionLeaveTimeout={500}
 				>
 					<h2 key={this.state.checked}>{this.state.visibleText}</h2>
 				</ReactCSSTransitionGroup>

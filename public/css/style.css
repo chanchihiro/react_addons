@@ -59,3 +59,19 @@ body {
 #content {
   width: 300px;
   margin: 0 auto; }
+
+.fadingText-enter {
+  opacity: 0; }
+
+.fadingText-enter.fadingText-enter-active {
+  opacity: 1;
+  -webkit-transition: 1500ms;
+  transition: 1500ms; }
+
+.fadingText-leave {
+  opacity: 1; }
+
+.fadingText-leave.fadingText-leave-active {
+  opacity: 0;
+  -webkit-transition: 500ms;
+  transition: 500ms; }

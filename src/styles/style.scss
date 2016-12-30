@@ -4,19 +4,37 @@
 @import "lib/mixins";
 
 
-body{
+body {
 	background-color: #fff;
 	font-family: mc-l;
 }
 
-.bd , th ,td{
+.bd , th ,td {
 	border: 1px solid #000;
 	border-collapse: collapse;
 	padding: 3px 10px;
 }
 
-#content{
+#content {
 	width: 300px;
 	margin: 0 auto;
+}
+
+.fadingText-enter {
+	opacity: 0;
+}
+
+.fadingText-enter.fadingText-enter-active {
+	opacity: 1;
+	transition:1500ms;
+}
+
+.fadingText-leave {
+	opacity: 1;
+}
+
+.fadingText-leave.fadingText-leave-active {
+	opacity: 0;
+	transition:500ms;
 }
 

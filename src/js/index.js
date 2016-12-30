@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Addons from "react-addons"
 
 import DispTable from "./components/Table"
-
+import Anime from "./components/Anime"
 
 
 let tableColumns = ['名前', '地域', '番号'];
@@ -15,8 +16,10 @@ let tableData = [
 
 
 
+
+
 ReactDOM.render(
-	<DispTable title={tableColumns} data={tableData} />,
+	<Anime />,
 	document.getElementById("content")
 );
 

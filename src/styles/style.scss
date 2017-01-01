@@ -22,19 +22,31 @@ body {
 
 .fadingText-enter {
 	opacity: 0;
+	transform: scale(5.0,5.0) traslate(300px, 0px);
 }
 
 .fadingText-enter.fadingText-enter-active {
 	opacity: 1;
-	transition:1500ms;
+	transform: scale(1.0,1.0) scale(1.0, 1.0);
+	transition:500ms;
 }
 
 .fadingText-leave {
 	opacity: 1;
+	transform: scale(1.0, 1.0);
 }
 
 .fadingText-leave.fadingText-leave-active {
 	opacity: 0;
-	transition:500ms;
+	transform: scale(0.1, 0.1);
+	transition:800ms;
 }
 
+.fadingText-appear {
+	opacity: 0;
+}
+
+.fadingText-appear.fadingText-appar-active {
+	opacity: 1;
+	transition: 800ms;
+}

@@ -22577,8 +22577,8 @@ var CheckAnimate = function (_React$Component) {
 		_this.state = {
 			checked: false,
 			visibleText: ''
-		};
-		_this.checkChange = _this.checkChange.bind(_this);
+		}; //ES6のとき初期値でreturnではなく、stateで設定する
+		_this.checkChange = _this.checkChange.bind(_this); //ES6のとき、thisをbindさせないといけない
 		return _this;
 	}
 
@@ -22605,7 +22605,9 @@ var CheckAnimate = function (_React$Component) {
 					{
 						transitionName: 'fadingText',
 						transitionEnterTimeout: 1500,
-						transitionLeaveTimeout: 500
+						transitionLeaveTimeout: 500,
+						transitionAppear: true,
+						transitionAppearTimeout: 800
 					},
 					_react2.default.createElement(
 						'h2',
@@ -22779,6 +22781,93 @@ exports.default = DispTable;
 },{"react":190,"react-dom":28}],193:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
+
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Todo = function (_React$Component) {
+	_inherits(Todo, _React$Component);
+
+	function Todo(props) {
+		_classCallCheck(this, Todo);
+
+		var _this = _possibleConstructorReturn(this, (Todo.__proto__ || Object.getPrototypeOf(Todo)).call(this, props));
+
+		_this.state = {
+			todoItems: [{ id: 0, name: "アイデアを出す" }, { id: 1, name: "タスクを消化する" }, { id: 2, name: "たくさん食べる" }],
+			newItem: ""
+		}; //ES6のとき初期値でreturnではなく、stateで設定する
+		_this.checkChange = _this.checkChange.bind(_this); //ES6のとき、thisをbindさせないといけない
+		return _this;
+	}
+
+	_createClass(Todo, [{
+		key: 'checkChange',
+		value: function checkChange(event) {
+			if (event.target.checked) {
+				this.setState({ visibleText: "普段は見えないテキスト" });
+			} else {
+				this.setState({ visibleText: '' });
+			}
+			this.setState({ checked: event.target.checked });
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement('input', { type: 'checkbox', checked: this.state.checked, onChange: this.checkChange }),
+				'\u96A0\u308C\u305F\u30C6\u30AD\u30B9\u30C8\u3092\u8868\u793A',
+				_react2.default.createElement(
+					_reactAddonsCssTransitionGroup2.default,
+					{
+						transitionName: 'fadingText',
+						transitionEnterTimeout: 1500,
+						transitionLeaveTimeout: 500,
+						transitionAppear: true,
+						transitionAppearTimeout: 800
+					},
+					_react2.default.createElement(
+						'h2',
+						{ key: this.state.checked },
+						this.state.visibleText
+					)
+				)
+			);
+		}
+	}]);
+
+	return Todo;
+}(_react2.default.Component);
+
+exports.default = Todo;
+
+},{"react":190,"react-addons-css-transition-group":27,"react-dom":28}],194:[function(require,module,exports){
+'use strict';
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -22799,12 +22888,16 @@ var _Anime = require('./components/Anime');
 
 var _Anime2 = _interopRequireDefault(_Anime);
 
+var _Todo = require('./components/Todo');
+
+var _Todo2 = _interopRequireDefault(_Todo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var tableColumns = ['名前', '地域', '番号'];
 
 var tableData = [{ id: 1, name: '野口千紘', area: '東京都港区', number: '888888' }, { id: 2, name: '山田太郎', area: '東京都渋谷区', number: '000000' }, { id: 3, name: '鈴木謙介', area: '東京都新宿区', number: '234234' }];
 
-_reactDom2.default.render(_react2.default.createElement(_Anime2.default, null), document.getElementById("content"));
+_reactDom2.default.render(_react2.default.createElement(_Todo2.default, null), document.getElementById("content"));
 
-},{"./components/Anime":191,"./components/Table":192,"react":190,"react-addons-css-transition-group":27,"react-dom":28}]},{},[193]);
+},{"./components/Anime":191,"./components/Table":192,"./components/Todo":193,"react":190,"react-addons-css-transition-group":27,"react-dom":28}]},{},[194]);

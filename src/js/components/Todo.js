@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
-export default class CheckAnimate extends React.Component {
+export default class Todo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			checked : false,
-			visibleText : ''
+			todoItems: [
+				{id: 0, name: "アイデアを出す"},
+				{id: 1, name: "タスクを消化する"},
+				{id: 2, name: "たくさん食べる"}
+			],
+			newItem: ""
 		}; //ES6のとき初期値でreturnではなく、stateで設定する
 		this.checkChange = this.checkChange.bind(this); //ES6のとき、thisをbindさせないといけない
 	}

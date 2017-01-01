@@ -61,17 +61,33 @@ body {
   margin: 0 auto; }
 
 .fadingText-enter {
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transform: scale(5, 5) traslate(300px, 0px);
+          transform: scale(5, 5) traslate(300px, 0px); }
 
 .fadingText-enter.fadingText-enter-active {
   opacity: 1;
-  -webkit-transition: 1500ms;
-  transition: 1500ms; }
+  -webkit-transform: scale(1, 1) scale(1, 1);
+          transform: scale(1, 1) scale(1, 1);
+  -webkit-transition: 500ms;
+  transition: 500ms; }
 
 .fadingText-leave {
-  opacity: 1; }
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1); }
 
 .fadingText-leave.fadingText-leave-active {
   opacity: 0;
-  -webkit-transition: 500ms;
-  transition: 500ms; }
+  -webkit-transform: scale(0.1, 0.1);
+          transform: scale(0.1, 0.1);
+  -webkit-transition: 800ms;
+  transition: 800ms; }
+
+.fadingText-appear {
+  opacity: 0; }
+
+.fadingText-appear.fadingText-appar-active {
+  opacity: 1;
+  -webkit-transition: 800ms;
+  transition: 800ms; }

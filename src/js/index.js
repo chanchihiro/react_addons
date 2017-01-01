@@ -4,6 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import DispTable from "./components/Table"
 import CheckAnimate from "./components/Anime"
+import Todo from "./components/Todo"
 
 
 let tableColumns = ['名前', '地域', '番号'];
@@ -16,7 +17,7 @@ let tableData = [
 
 
 ReactDOM.render(
-	<CheckAnimate />,
+	<Todo />,
 	document.getElementById("content")
 );
 

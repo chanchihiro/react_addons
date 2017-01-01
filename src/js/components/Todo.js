@@ -12,33 +12,50 @@ export default class Todo extends React.Component {
 				{id: 1, name: "タスクを消化する"},
 				{id: 2, name: "たくさん食べる"}
 			],
-			newItem: ""
+			newItem: ''
 		}; //ES6のとき初期値でreturnではなく、stateで設定する
-		this.checkChange = this.checkChange.bind(this); //ES6のとき、thisをbindさせないといけない
+		this.EditTodo = this.EditTodo.bind(this);
+		this.AddTodo = this.AddTodo.bind(this);
+		this.RemoveTodo = this.RemoveTodo.bind(this);
 	}
 
-	checkChange(event){
-		if(event.target.checked){
-			this.setState({visibleText : "普段は見えないテキスト"})
-		}else{
-			this.setState({visibleText : ''})
-		}
-		this.setState({checked : event.target.checked});
+	EditTodo(event){
+		this.setState({newItem: event.target.value});
 	}
+
+	AddTodo(event){
+		let idName = ({id: Date.now(), name: this.state.newItem});
+		let newItems = this.state.todoItems.concat(idName);
+		this.setState({todoItems : newItems});
+		this.setState({newItem: ''});
+	}
+
+	RemoveTodo(i){
+		let tempItems = this.state.todoItems;
+		tempItems.splice(i, 1);
+		this.setState({todoItems: tempItems});
+	}
+
 
 	render() {
+		let currentItems = this.state.todoItems.map((item,i) =>
+			<div key={item.id}>
+				<input type='checkbox' defaultChecked={false} onChange={() => this.RemoveTodo(i)} />
+				{item.name}
+			</div>
+		);
 		return(
 			<div>
-				<input type='checkbox' checked={this.state.checked} onChange={this.checkChange}/>
-				隠れたテキストを表示
+				Todo : <input type='text' value={this.state.newItem} onChange={this.EditTodo} />
+				<input type='button' value='追加' onClick={this.AddTodo} />
 				<ReactCSSTransitionGroup 
 					transitionName='fadingText'
-					transitionEnterTimeout={1500}
-					transitionLeaveTimeout={500}
+					transitionEnterTimeout={1000}
+					transitionLeaveTimeout={800}
 					transitionAppear={true}
 					transitionAppearTimeout={800}
 				>
-					<h2 key={this.state.checked}>{this.state.visibleText}</h2>
+				{currentItems}
 				</ReactCSSTransitionGroup>
 			</div>
 		);

@@ -62,15 +62,15 @@ body {
 
 .fadingText-enter {
   opacity: 0;
-  -webkit-transform: scale(5, 5) traslate(300px, 0px);
-          transform: scale(5, 5) traslate(300px, 0px); }
+  -webkit-transform: translate(1000px, 0px) scale(5, 5);
+          transform: translate(1000px, 0px) scale(5, 5); }
 
 .fadingText-enter.fadingText-enter-active {
   opacity: 1;
-  -webkit-transform: scale(1, 1) scale(1, 1);
-          transform: scale(1, 1) scale(1, 1);
-  -webkit-transition: 500ms;
-  transition: 500ms; }
+  -webkit-transform: translate(0px, 0px) scale(1, 1);
+          transform: translate(0px, 0px) scale(1, 1);
+  -webkit-transition: 1000ms;
+  transition: 1000ms; }
 
 .fadingText-leave {
   opacity: 1;

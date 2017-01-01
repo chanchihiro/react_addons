@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import DispTable from "./components/Table"
-import CheckAnimate from "./components/Anime"
 import Todo from "./components/Todo"
 
 
@@ -20,5 +18,3 @@ ReactDOM.render(
 	<Todo />,
 	document.getElementById("content")
 );
-
-

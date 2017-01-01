@@ -22566,247 +22566,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var CheckAnimate = function (_React$Component) {
-	_inherits(CheckAnimate, _React$Component);
-
-	function CheckAnimate(props) {
-		_classCallCheck(this, CheckAnimate);
-
-		var _this = _possibleConstructorReturn(this, (CheckAnimate.__proto__ || Object.getPrototypeOf(CheckAnimate)).call(this, props));
-
-		_this.state = {
-			checked: false,
-			visibleText: ''
-		}; //ES6のとき初期値でreturnではなく、stateで設定する
-		_this.checkChange = _this.checkChange.bind(_this); //ES6のとき、thisをbindさせないといけない
-		return _this;
-	}
-
-	_createClass(CheckAnimate, [{
-		key: 'checkChange',
-		value: function checkChange(event) {
-			if (event.target.checked) {
-				this.setState({ visibleText: "普段は見えないテキスト" });
-			} else {
-				this.setState({ visibleText: '' });
-			}
-			this.setState({ checked: event.target.checked });
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement('input', { type: 'checkbox', checked: this.state.checked, onChange: this.checkChange }),
-				'\u96A0\u308C\u305F\u30C6\u30AD\u30B9\u30C8\u3092\u8868\u793A',
-				_react2.default.createElement(
-					_reactAddonsCssTransitionGroup2.default,
-					{
-						transitionName: 'fadingText',
-						transitionEnterTimeout: 1500,
-						transitionLeaveTimeout: 500,
-						transitionAppear: true,
-						transitionAppearTimeout: 800
-					},
-					_react2.default.createElement(
-						'h2',
-						{ key: this.state.checked },
-						this.state.visibleText
-					)
-				)
-			);
-		}
-	}]);
-
-	return CheckAnimate;
-}(_react2.default.Component);
-
-exports.default = CheckAnimate;
-
-},{"react":190,"react-addons-css-transition-group":27,"react-dom":28}],192:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ContactTable = function (_React$Component) {
-	_inherits(ContactTable, _React$Component);
-
-	function ContactTable() {
-		_classCallCheck(this, ContactTable);
-
-		return _possibleConstructorReturn(this, (ContactTable.__proto__ || Object.getPrototypeOf(ContactTable)).apply(this, arguments));
-	}
-
-	_createClass(ContactTable, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'table',
-				null,
-				this.props.children
-			);
-		}
-	}]);
-
-	return ContactTable;
-}(_react2.default.Component);
-
-ContactTable.Header = function (_React$Component2) {
-	_inherits(Header, _React$Component2);
-
-	function Header() {
-		_classCallCheck(this, Header);
-
-		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
-	}
-
-	_createClass(Header, [{
-		key: 'render',
-		value: function render() {
-			var tableTitles = this.props.title.map(function (cName, i) {
-				return _react2.default.createElement(
-					'th',
-					{ key: i },
-					cName
-				);
-			});
-
-			return _react2.default.createElement(
-				'thead',
-				null,
-				_react2.default.createElement(
-					'tr',
-					null,
-					tableTitles
-				)
-			);
-		}
-	}]);
-
-	return Header;
-}(_react2.default.Component);
-
-ContactTable.Body = function (_React$Component3) {
-	_inherits(Body, _React$Component3);
-
-	function Body() {
-		_classCallCheck(this, Body);
-
-		return _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).apply(this, arguments));
-	}
-
-	_createClass(Body, [{
-		key: 'render',
-		value: function render() {
-			var tableRows = this.props.data.map(function (person) {
-				return _react2.default.createElement(
-					'tr',
-					{ key: person.id },
-					_react2.default.createElement(
-						'td',
-						null,
-						person.name
-					),
-					_react2.default.createElement(
-						'td',
-						null,
-						person.area
-					),
-					_react2.default.createElement(
-						'td',
-						null,
-						person.number
-					)
-				);
-			});
-
-			return _react2.default.createElement(
-				'tbody',
-				null,
-				tableRows
-			);
-		}
-	}]);
-
-	return Body;
-}(_react2.default.Component);
-
-var DispTable = function (_React$Component4) {
-	_inherits(DispTable, _React$Component4);
-
-	function DispTable() {
-		_classCallCheck(this, DispTable);
-
-		return _possibleConstructorReturn(this, (DispTable.__proto__ || Object.getPrototypeOf(DispTable)).apply(this, arguments));
-	}
-
-	_createClass(DispTable, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				ContactTable,
-				{ className: 'bd' },
-				_react2.default.createElement(ContactTable.Header, { title: this.props.title }),
-				_react2.default.createElement(ContactTable.Body, { data: this.props.data })
-			);
-		}
-	}]);
-
-	return DispTable;
-}(_react2.default.Component);
-
-exports.default = DispTable;
-
-},{"react":190,"react-dom":28}],193:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var Todo = function (_React$Component) {
 	_inherits(Todo, _React$Component);
 
@@ -22817,44 +22576,65 @@ var Todo = function (_React$Component) {
 
 		_this.state = {
 			todoItems: [{ id: 0, name: "アイデアを出す" }, { id: 1, name: "タスクを消化する" }, { id: 2, name: "たくさん食べる" }],
-			newItem: ""
+			newItem: ''
 		}; //ES6のとき初期値でreturnではなく、stateで設定する
-		_this.checkChange = _this.checkChange.bind(_this); //ES6のとき、thisをbindさせないといけない
+		_this.EditTodo = _this.EditTodo.bind(_this);
+		_this.AddTodo = _this.AddTodo.bind(_this);
+		_this.RemoveTodo = _this.RemoveTodo.bind(_this);
 		return _this;
 	}
 
 	_createClass(Todo, [{
-		key: 'checkChange',
-		value: function checkChange(event) {
-			if (event.target.checked) {
-				this.setState({ visibleText: "普段は見えないテキスト" });
-			} else {
-				this.setState({ visibleText: '' });
-			}
-			this.setState({ checked: event.target.checked });
+		key: 'EditTodo',
+		value: function EditTodo(event) {
+			this.setState({ newItem: event.target.value });
+		}
+	}, {
+		key: 'AddTodo',
+		value: function AddTodo(event) {
+			var idName = { id: Date.now(), name: this.state.newItem };
+			var newItems = this.state.todoItems.concat(idName);
+			this.setState({ todoItems: newItems });
+			this.setState({ newItem: '' });
+		}
+	}, {
+		key: 'RemoveTodo',
+		value: function RemoveTodo(i) {
+			var tempItems = this.state.todoItems;
+			tempItems.splice(i, 1);
+			this.setState({ todoItems: tempItems });
 		}
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
+			var currentItems = this.state.todoItems.map(function (item, i) {
+				return _react2.default.createElement(
+					'div',
+					{ key: item.id },
+					_react2.default.createElement('input', { type: 'checkbox', defaultChecked: false, onChange: function onChange() {
+							return _this2.RemoveTodo(i);
+						} }),
+					item.name
+				);
+			});
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement('input', { type: 'checkbox', checked: this.state.checked, onChange: this.checkChange }),
-				'\u96A0\u308C\u305F\u30C6\u30AD\u30B9\u30C8\u3092\u8868\u793A',
+				'Todo : ',
+				_react2.default.createElement('input', { type: 'text', value: this.state.newItem, onChange: this.EditTodo }),
+				_react2.default.createElement('input', { type: 'button', value: '\u8FFD\u52A0', onClick: this.AddTodo }),
 				_react2.default.createElement(
 					_reactAddonsCssTransitionGroup2.default,
 					{
 						transitionName: 'fadingText',
-						transitionEnterTimeout: 1500,
-						transitionLeaveTimeout: 500,
+						transitionEnterTimeout: 1000,
+						transitionLeaveTimeout: 800,
 						transitionAppear: true,
 						transitionAppearTimeout: 800
 					},
-					_react2.default.createElement(
-						'h2',
-						{ key: this.state.checked },
-						this.state.visibleText
-					)
+					currentItems
 				)
 			);
 		}
@@ -22865,7 +22645,7 @@ var Todo = function (_React$Component) {
 
 exports.default = Todo;
 
-},{"react":190,"react-addons-css-transition-group":27,"react-dom":28}],194:[function(require,module,exports){
+},{"react":190,"react-addons-css-transition-group":27,"react-dom":28}],192:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -22879,14 +22659,6 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-var _Table = require('./components/Table');
-
-var _Table2 = _interopRequireDefault(_Table);
-
-var _Anime = require('./components/Anime');
-
-var _Anime2 = _interopRequireDefault(_Anime);
 
 var _Todo = require('./components/Todo');
 
@@ -22900,4 +22672,4 @@ var tableData = [{ id: 1, name: '野口千紘', area: '東京都港区', number:
 
 _reactDom2.default.render(_react2.default.createElement(_Todo2.default, null), document.getElementById("content"));
 
-},{"./components/Anime":191,"./components/Table":192,"./components/Todo":193,"react":190,"react-addons-css-transition-group":27,"react-dom":28}]},{},[194]);
+},{"./components/Todo":191,"react":190,"react-addons-css-transition-group":27,"react-dom":28}]},{},[192]);
